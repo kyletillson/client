@@ -20,6 +20,8 @@ export default function ShowRestaurant() {
 
     const [reviews, setReviews] = useState("")
     const [comment, setComment] = useState("")
+    const [restaurant_id, setRestaurant_id] = useState({id})
+    const [user_id, setUser_id] = useState({id})
 
     function onAddReview(NewReview) {
         const updatedReviewArray = [...reviews, NewReview]
@@ -35,7 +37,8 @@ export default function ShowRestaurant() {
             },
             body: JSON.stringify({
                 comment: comment,
-                restaurant: restaurant,
+                restaurant_id: restaurant_id,
+                user_id: user_id,
             })
         })
         .then((r) => r.json())
@@ -76,6 +79,8 @@ export default function ShowRestaurant() {
             </>}
             <form onSubmit={handleSubmit}>
                 <input onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Comment' />
+                <input onChange={(e) => setRestaurant_id(e.target.value)} value={restaurant_id} type="text" placeholder='Restaurant' />
+                <input onChange={(e) => setUser_id(e.target.value)} value={user_id} type="text" placeholder='User' />
                 <button type='submit'>Add Review</button>
             </form>
             
