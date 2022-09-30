@@ -31,7 +31,7 @@ export default function AddReview({ id }) {
     <form onSubmit={handleSubmit}>
         <label>Comment</label>
         <input type="text" name="comment" onChange={handleChange}/>
-        <button type="submit" >submit</button>
+        <button className="button" type="submit" >submit</button>
 
     </form>
     </>

@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Search({ searchTerm, onSearchChange }) {
   return (
-    <div className="searchbar">
+    <div className="search-container">
         
-        <input className="searchInput"
+        <input className="search-input"
         type="text"
         id='search'
         placeholder='Type a type of food...'

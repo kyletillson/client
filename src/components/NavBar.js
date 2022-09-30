@@ -36,14 +36,16 @@ function NavBar({ user, setUser }) {
         <Link to="/restaurants">Restaurants</Link>
       </div>
       <div>
+        <br></br>
         {user ? (
-          <button onClick={handleLogoutClick}>Logout</button>
+          <button className="button" onClick={handleLogoutClick}>Logout</button>
         ) : (
           <>
             
           </>
         )}
       </div>
+      <br></br>
 
         </nav>
       

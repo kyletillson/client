@@ -29,9 +29,11 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
         <h3>{name}</h3>
         <h4>{description}</h4>
         <h4>{price}</h4>
-        <button onClick={handleDeleteClick}>Delete</button>
+        <button className='button' onClick={handleDeleteClick}>Delete</button>
+        <br></br>
+        <br></br>
         {/* <Link to={`/restaurants/${id}`}>View Restaurant</Link> */}
-        <button onClick={handleClick}>More Info</button>
+        <button className='button' onClick={handleClick}>More Info</button>
     </div>
     </>
   )

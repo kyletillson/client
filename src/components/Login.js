@@ -35,6 +35,8 @@ function Login({ setUser }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        <br></br>
+        <br></br>
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -43,7 +45,9 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <br></br>
+        <br></br>
+        <button className="button" type="submit">Login</button>
         <FormField>
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
