@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Error, FormField } from "../styles";
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,6 +17,8 @@ function Login({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
       }
     });
   }
@@ -40,6 +44,11 @@ function Login({ setUser }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
+        <FormField>
+        {errors.map((err) => (
+          <Error key={err}>{err}</Error>
+        ))}
+      </FormField>
       </form>
     </div>
   );

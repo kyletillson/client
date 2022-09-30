@@ -5,6 +5,7 @@ import Home from "./Home";
 import Login from "./Login";
 import SignUpForm from "./SignUpForm";
 import NewRestaurant from "./NewRestaurant";
+import Restaurants from "./Restaurants";
 
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
@@ -31,6 +32,9 @@ function NavBar({ user, setUser }) {
         <Link to="/newrestaurant">New Restaurant</Link>
       </div>
       <div>
+        <Link to="/restaurants">Restaurants</Link>
+      </div>
+      <div>
         {user ? (
           <button onClick={handleLogoutClick}>Logout</button>
         ) : (
@@ -48,6 +52,7 @@ function NavBar({ user, setUser }) {
         <Route path="/login" element={<Login setUser={setUser}/>} />
         <Route path="/signup" element={<SignUpForm setUser={setUser}/>}/>
         <Route path="/newrestaurant" element={<NewRestaurant />}/>
+        <Route path="/restaurants" element={<Restaurants />}/>
       </Routes>
     </div>
     
