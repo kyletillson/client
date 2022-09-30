@@ -6,6 +6,7 @@ import Login from "./Login";
 import SignUpForm from "./SignUpForm";
 import NewRestaurant from "./NewRestaurant";
 import Restaurants from "./Restaurants";
+import ShowRestaurant from "./ShowRestaurant";
 
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
@@ -53,6 +54,7 @@ function NavBar({ user, setUser }) {
         <Route path="/signup" element={<SignUpForm setUser={setUser}/>}/>
         <Route path="/newrestaurant" element={<NewRestaurant />}/>
         <Route path="/restaurants" element={<Restaurants />}/>
+        <Route path="/restaurants/:id" element={<ShowRestaurant />} />
       </Routes>
     </div>
     

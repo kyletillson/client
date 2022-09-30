@@ -2,7 +2,7 @@ import React from 'react'
 import RestaurantCard from './RestaurantCard'
 
 export default function RestaurantList({restaurants, onDeleteRestaurant}) {
-    console.log(restaurants)
+    
   return (
     <div>
         {restaurants.map((restaurant) => {

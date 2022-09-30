@@ -16,7 +16,7 @@ export default function Restaurants() {
     }, [])
 
     const displayedRestaurants = restaurants.filter((restaurant) => {
-        return restaurant.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+        return restaurant.type_of_food.toLowerCase().includes(searchTerm.toLocaleLowerCase())
     })
 
     function handleDeleteRestaurant(id) {

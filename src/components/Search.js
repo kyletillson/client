@@ -7,7 +7,7 @@ export default function Search({ searchTerm, onSearchChange }) {
         <input className="searchInput"
         type="text"
         id='search'
-        placeholder='Type a Restaurant Name...'
+        placeholder='Type a type of food...'
         value={searchTerm}
         onChange={(e) => onSearchChange(e.target.value)}
         />
