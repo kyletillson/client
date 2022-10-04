@@ -25,11 +25,12 @@ export default function Restaurants() {
     }
   return (
     <>
-    <div>Restaurants</div>
+    
     <br></br>
     <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}></Search>
     <br></br>
-    <RestaurantList restaurants={displayedRestaurants} onDeleteRestaurant={handleDeleteRestaurant}></RestaurantList>
+    <RestaurantList restaurants={displayedRestaurants} onDeleteRestaurant={handleDeleteRestaurant} ></RestaurantList>
+    
     </>
   )
 }

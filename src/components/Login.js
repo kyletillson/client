@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import { Error, FormField } from "../styles";
+import { useNavigate } from 'react-router-dom'
 
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+      navigate("/")
+  }
+
+
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -47,13 +57,15 @@ function Login({ setUser }) {
         />
         <br></br>
         <br></br>
-        <button className="button" type="submit">Login</button>
+        <button className="button" type="submit" onSubmit={handleClick}>Login</button>
         <FormField>
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
       </FormField>
       </form>
+      
+      
     </div>
   );
 }

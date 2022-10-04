@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 
-export default function ShowRestaurant() {
+export default function ShowRestaurant({user}) {
     const [restaurant, setRestaurant] = useState({
         reviews: []
     })
@@ -12,6 +12,8 @@ export default function ShowRestaurant() {
     const [price, setPrice] = useState("")
     const [updatedRestaurant, setUpdatedRestaurant] = useState([])
 
+    
+
     const { id } = useParams()
 
     useEffect(() => {
@@ -20,10 +22,15 @@ export default function ShowRestaurant() {
         .then(data => setRestaurant(data))
     }, [])
     // console.log(restaurant)
-
-    const allComments = restaurant.reviews.map((review) => {
-        return <p>{review.comment}</p>
+      const allComments = restaurant.reviews.map((review) => {
+        return <div>
+            <p className='h4'>{review.author}: {review.comment}</p>
+        {user && (user.id === review.user_id) ?
+        <button onClick={()=> {handleDeleteClick(review.id)}}>delete</button>
+        : null}
+        </div>
     })
+
 
     const [comment, setComment] = useState("")
     
@@ -33,6 +40,22 @@ export default function ShowRestaurant() {
        setRestaurant(r => ({...r, reviews: [...r.reviews, newReview]}))
        setComment("")
     }
+
+    function onDeleteReview(id) {
+        const updateReviewsArray = restaurant.reviews.filter((comment) => comment.id !== id)
+        setRestaurant(r => ({...r, reviews: updateReviewsArray}))
+    }
+
+    function handleDeleteClick(id) {
+        fetch(`/reviews/${id}`, {
+            method: "DELETE",
+    
+        }).then(r => onDeleteReview(id))
+        
+    }
+
+  
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -60,6 +83,19 @@ export default function ShowRestaurant() {
         
     //  }
 
+    // function handleDeleteReview(id) {
+    //     const updateReviewsArray = comments.filter((comment) => comment.id !== id)
+    //     setRestaurant(updateReviewsArray)
+    // }
+
+    // function handleDeleteClick() {
+    //     fetch(`/restaurants/${id}`, {
+    //         method: "DELETE",
+    
+    //     })
+    //     handleDeleteReview(id)
+    // }
+
 
     
     function handleUpdate (e) {
@@ -86,15 +122,18 @@ export default function ShowRestaurant() {
     
   return (
     <>
-    <div>View Restaurant</div>
+    
             {restaurant && <>
-                <p>{restaurant.type_of_food}</p>
-                <img src={restaurant.image} alt={restaurant.name} />
-                <p>{restaurant.name}</p>
-                <p>{restaurant.description}</p>
-                <p>{restaurant.price}</p>
+                <p className='title'>{restaurant.type_of_food}</p>
+                <img className='img' src={restaurant.image} alt={restaurant.name} />
+                <p className='h3'>{restaurant.name}</p>
+                <p className='h4'>{restaurant.description}</p>
+                <p className='h4'>{restaurant.price}</p>
                 <p>Reviews</p>
                 {allComments}
+                {/* <br></br>
+                <br></br>
+                <button className='button' onClick={handleDeleteClick}>Delete Review</button> */}
                 {/* <AddReview id={id} />
                 {
                     restaurant.reviews.map(item => {
@@ -104,8 +143,9 @@ export default function ShowRestaurant() {
                 
                 {/* <p>{restaurant.reviews}</p> */}
             </>}
+            
             <form onSubmit={handleSubmit}>
-                <input class="form__field" onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Comment' />
+                <input className="form__field" onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Review' />
                 <button className='button' type='submit'>Add Review</button>
             </form>
 

@@ -15,7 +15,7 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
     const {id, type_of_food, name, image, description, price} = restaurant;
     
     function handleDeleteClick() {
-        fetch(`/restaurants${id}`, {
+        fetch(`/restaurants/${id}`, {
             method: "DELETE",
     
         })
@@ -24,11 +24,11 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
   return (
     <>
     <div>
-        <h4>{type_of_food}</h4>
-        <img src={image} alt={name}/>
-        <h3>{name}</h3>
-        <h4>{description}</h4>
-        <h4>{price}</h4>
+        <h4 className='title'>{type_of_food}</h4>
+        <img className='img' src={image} alt={name}/>
+        <h3 className='h3'>{name}</h3>
+        <h4 className='h4'>{description}</h4>
+        <h4 className='h4'>{price}</h4>
         <button className='button' onClick={handleDeleteClick}>Delete</button>
         <br></br>
         <br></br>

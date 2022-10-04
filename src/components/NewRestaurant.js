@@ -44,13 +44,20 @@ export default function NewRestaurant() {
   }
   return (
     <>
-    <div>Add a Restaurant</div>
+    <br></br>
+    <br></br>
+    <div className='h4'>Add a Restaurant</div>
+    <br></br>
+    <br></br>
     <form onSubmit={handleSubmit}>
       <input onChange={(e) => setType_of_food(e.target.value)} value={type_of_food} type="text" name="Type of food" placeholder='Type of food' />
       <input onChange={(e) => setName(e.target.value)} value={name} type="text" name="Name" placeholder='Name' />
       <input onChange={(e) => setImage(e.target.value)} value={image} type="text" name="Image" placeholder='Image' />
       <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" name="Description" placeholder='Description' />
       <input onChange={(e) => setPrice(e.target.value)} value={price} type="text" name="Price" placeholder='Price' />
+      <br></br>
+      <br></br>
+      <br></br>
       <button className='button' type='submit'>Add Restaurant</button>
     </form>
     </>

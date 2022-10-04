@@ -8,6 +8,7 @@ import NewRestaurant from "./NewRestaurant";
 import Restaurants from "./Restaurants";
 import ShowRestaurant from "./ShowRestaurant";
 
+
 function NavBar({ user, setUser }) {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -17,9 +18,13 @@ function NavBar({ user, setUser }) {
     });
   }
 
+
+
+
+
   return (
     <div>
-        <nav>
+        <nav className="navbar">
       <div>
         <Link to="/">Home</Link>
       </div>
@@ -46,6 +51,7 @@ function NavBar({ user, setUser }) {
         )}
       </div>
       <br></br>
+     
 
         </nav>
       
@@ -56,7 +62,7 @@ function NavBar({ user, setUser }) {
         <Route path="/signup" element={<SignUpForm setUser={setUser}/>}/>
         <Route path="/newrestaurant" element={<NewRestaurant />}/>
         <Route path="/restaurants" element={<Restaurants />}/>
-        <Route path="/restaurants/:id" element={<ShowRestaurant />} />
+        <Route path="/restaurants/:id" element={<ShowRestaurant user={user}/>} />
       </Routes>
     </div>
     

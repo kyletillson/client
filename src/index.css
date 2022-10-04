@@ -3,7 +3,7 @@ body {
 }
 
 
-.button {
+/* .button {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -68,6 +68,71 @@ body {
   left: 0;
   top: 0;
   border-radius: 10px;
+} */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display:flex;
+  overflow:hidden;
+  justify-content: center;
+  height: 100px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transition: all 0.5s ease;
+}
+
+
+
+.navbar {
+  background: gray;
+  color: black;
+  border-radius:5px;
+}
+
+
+
+/* CSS */
+.button {
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 150px;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button:hover,
+.button:focus {
+  opacity: .75;
 }
 
 div {
@@ -116,7 +181,7 @@ box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
   color: #5cbdbb;
 }
 
-@keyframes hoverShake {
+/* @keyframes hoverShake {
 0% {transform: skew(0deg,0deg);}
 25% {transform: skew(5deg, 5deg);}
 75% {transform: skew(-5deg, -5deg);}
@@ -125,7 +190,7 @@ box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
 
 .search-container:hover{
 animation: hoverShake 0.15s linear 3;
-}
+} */
 
 .form__field {
   font-family: inherit;
@@ -157,5 +222,57 @@ animation: hoverShake 0.15s linear 3;
   transition: 0.2s;
   font-size: 1rem;
   color: gray;
+}
+
+/* .navbar {
+  position: sticky;
+  top: 0;
+  display:flex;
+  overflow:hidden;
+  justify-content: center;
+  height: 100px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  transition: all 0.5s ease;
+}
+
+
+
+.navbar {
+  background: gray;
+  color: black;
+  border-radius:5px;
+} */
+
+.h4 {
+  font-size: 20px;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+}
+
+.h3 {
+  font-size: 20px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.image {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
 }
 

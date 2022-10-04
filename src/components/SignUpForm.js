@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Error, FormField, Textarea } from "../styles";
+import { useNavigate } from 'react-router-dom'
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -9,6 +10,12 @@ function SignUpForm({ onLogin }) {
   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("/login")
+}
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -88,7 +95,7 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <button className="button" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button className="button" type="submit" onSubmit={handleClick}>{isLoading ? "Loading..." : "Sign Up"}</button>
       </FormField>
       <FormField>
         {errors.map((err) => (
