@@ -4,7 +4,7 @@ function Home({ user }) {
       <h4 className="h4">{user.bio}</h4>
       </>
     } else {
-      return <h1>Please Login or Sign Up</h1>;
+      return <h1>Please Log In or Sign Up</h1>;
     }
   }
   
