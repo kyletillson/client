@@ -59,7 +59,7 @@ function NavBar({ user, setUser }) {
       <Routes>
         <Route path="/" element={<Home user={user}/>} />
         <Route path="/login" element={<Login setUser={setUser}/>} />
-        <Route path="/signup" element={<SignUpForm setUser={setUser}/>}/>
+        <Route path="/signup" element={<SignUpForm onLogin={setUser}/>}/>
         <Route path="/newrestaurant" element={<NewRestaurant />}/>
         <Route path="/restaurants" element={<Restaurants />}/>
         <Route path="/restaurants/:id" element={<ShowRestaurant user={user}/>} />

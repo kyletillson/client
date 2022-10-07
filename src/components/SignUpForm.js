@@ -36,7 +36,7 @@ function SignUpForm({ onLogin }) {
       if (r.ok) {
         r.json().then((user) => {
           onLogin(user)
-          navigate("/login")
+          navigate("/")
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -96,7 +96,7 @@ function SignUpForm({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <button className="button" type="submit" onSubmit={handleClick}>{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button className="button" type="submit" >{isLoading ? "Loading..." : "Sign Up"}</button>
       </FormField>
       <FormField>
         {errors.map((err) => (
