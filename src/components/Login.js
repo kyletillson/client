@@ -9,9 +9,6 @@ function Login({ setUser }) {
 
   const navigate = useNavigate()
 
-  const handleClick = () => {
-      navigate("/")
-  }
 
 
 
@@ -26,7 +23,11 @@ function Login({ setUser }) {
       body: JSON.stringify({ username, password }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+          navigate("/")
+        })
+
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -57,7 +58,7 @@ function Login({ setUser }) {
         />
         <br></br>
         <br></br>
-        <button className="button" type="submit" onSubmit={handleClick}>Login</button>
+        <button className="button" type="submit">Login</button>
         <FormField>
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
