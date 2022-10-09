@@ -7,6 +7,14 @@ export default function Restaurants() {
     const [restaurants, setRestaurants] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
 
+    // useEffect(()=> {
+    //     fetch("/restaurants")
+    //     .then(response => response.json())
+    //     .then((data) => {
+    //         setRestaurants(data)
+    //     })
+    // }, [])
+
     useEffect(()=> {
         fetch("/restaurants")
         .then(response => response.json())
@@ -15,8 +23,13 @@ export default function Restaurants() {
         })
     }, [])
 
+    
+    
+    
+
+   
     const displayedRestaurants = restaurants.filter((restaurant) => {
-        return restaurant.type_of_food.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+        return restaurant.name.toLowerCase().includes(searchTerm.toLowerCase())
     })
 
     function handleDeleteRestaurant(id) {

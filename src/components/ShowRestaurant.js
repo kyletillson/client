@@ -5,11 +5,12 @@ export default function ShowRestaurant({user}) {
     const [restaurant, setRestaurant] = useState({
         reviews: []
     })
-    const [type_of_food, setType_of_food] = useState("")
+    const [display_address, setDisplay_Address] = useState("")
     const [name, setName] = useState("")
-    const [image, setImage] = useState("")
-    const [description, setDescription] = useState("")
+    const [image_url, setImage_Url] = useState("")
+    const [display_phone, setDisplay_Phone] = useState("")
     const [price, setPrice] = useState("")
+    const [rating, setRating] = useState("")
     const [updatedRestaurant, setUpdatedRestaurant] = useState([])
 
     
@@ -21,7 +22,9 @@ export default function ShowRestaurant({user}) {
         .then(res => res.json())
         .then(data => setRestaurant(data))
     }, [])
-    // console.log(restaurant)
+
+
+    
       const allComments = restaurant.reviews.map((review) => {
         return <div>
             <p className='h4'>{review.author}: {review.comment}</p>
@@ -78,24 +81,6 @@ export default function ShowRestaurant({user}) {
         setUpdatedRestaurant(updatedRestaurantPage)
     }
 
-    // function onUpdateRestaurant(updatedRestaurants) {
-    //     setRestaurant([...updatedRestaurant, updatedRestaurants])
-        
-    //  }
-
-    // function handleDeleteReview(id) {
-    //     const updateReviewsArray = comments.filter((comment) => comment.id !== id)
-    //     setRestaurant(updateReviewsArray)
-    // }
-
-    // function handleDeleteClick() {
-    //     fetch(`/restaurants/${id}`, {
-    //         method: "DELETE",
-    
-    //     })
-    //     handleDeleteReview(id)
-    // }
-
 
     
     function handleUpdate (e) {
@@ -107,42 +92,35 @@ export default function ShowRestaurant({user}) {
             },
             body: JSON.stringify({
                 id: id,
-                type_of_food: type_of_food,
                 name: name,
-                image: image,
-                description: description,
+                image_url: image_url,
+                rating: rating,
                 price: price,
+                display_phone: display_phone,
+                display_address: display_address,
             })
         })
         .then((r) => r.json())
         .then((updatedRestaurant) => (onUpdateRestaurant))
     }
 
+  
+
 
     
   return (
     <>
     
-            {restaurant && <>
-                <p className='title'>{restaurant.type_of_food}</p>
-                <img className='img' src={restaurant.image} alt={restaurant.name} />
-                <p className='h3'>{restaurant.name}</p>
-                <p className='h4'>{restaurant.description}</p>
-                <p className='h4'>{restaurant.price}</p>
+            
+                <p className='title'>{restaurant.name}</p>
+                <img className='img' src={restaurant.image_url} alt={restaurant.name} />
+                <p className='h3'>Price: {restaurant.price}</p>
+                <p className='h4'>Average rating: {restaurant.rating}</p>
+                <p className='h4'>Phone: {restaurant.display_phone}</p>
+                <p className='h4'>Address: {restaurant.display_address}</p>
                 <p>Reviews</p>
                 {allComments}
-                {/* <br></br>
-                <br></br>
-                <button className='button' onClick={handleDeleteClick}>Delete Review</button> */}
-                {/* <AddReview id={id} />
-                {
-                    restaurant.reviews.map(item => {
-                        <Review key={item.id} id={item.id} comment={item.comment} user={item.user_id} />
-                    })
-                } */}
-                
-                {/* <p>{restaurant.reviews}</p> */}
-            </>}
+           
             
             <form onSubmit={handleSubmit}>
                 <input className="form__field" onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Review' />
@@ -153,11 +131,12 @@ export default function ShowRestaurant({user}) {
             <br></br>
             <br></br>
             <form onSubmit={handleUpdate}>
-            <input onChange={(e) => setType_of_food(e.target.value)} value={type_of_food} type="text" name="Type of food" placeholder='Type of food' />
             <input onChange={(e) => setName(e.target.value)} value={name} type="text" name="Name" placeholder='Name' />
-            <input onChange={(e) => setImage(e.target.value)} value={image} type="text" name="Image" placeholder='Image' />
-            <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" name="Description" placeholder='Description' />
+            <input onChange={(e) => setImage_Url(e.target.value)} value={image_url} type="text" name="Image" placeholder='Image' />
             <input onChange={(e) => setPrice(e.target.value)} value={price} type="text" name="Price" placeholder='Price' />
+            <input onChange={(e) => setRating(e.target.value)} value={rating} type="text" name="Rating" placeholder='Rating' />
+            <input onChange={(e) => setDisplay_Phone(e.target.value)} value={display_phone} type="text" name="Phone" placeholder='Phone' />
+            <input onChange={(e) => setDisplay_Address(e.target.value)} value={display_address} type="text" name="Address" placeholder='Address' />
             <br></br>
             <br></br>
             <button className='button' type='submit'>Update Restaurant</button>

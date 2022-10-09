@@ -7,6 +7,7 @@ import SignUpForm from "./SignUpForm";
 import NewRestaurant from "./NewRestaurant";
 import Restaurants from "./Restaurants";
 import ShowRestaurant from "./ShowRestaurant";
+import Profile from "./Profile";
 
 
 function NavBar({ user, setUser }) {
@@ -17,6 +18,8 @@ function NavBar({ user, setUser }) {
       }
     });
   }
+
+
 
 
 
@@ -41,6 +44,9 @@ function NavBar({ user, setUser }) {
         <Link to="/restaurants">Restaurants</Link>
       </div>
       <div>
+        <Link to="/users">Profile</Link>
+      </div>
+      <div>
         <br></br>
         {user ? (
           <button className="button" onClick={handleLogoutClick}>Logout</button>
@@ -51,6 +57,7 @@ function NavBar({ user, setUser }) {
         )}
       </div>
       <br></br>
+      {/* <button className="button" onClick={handleClick}>{user.username}</button> */}
      
 
         </nav>
@@ -63,6 +70,7 @@ function NavBar({ user, setUser }) {
         <Route path="/newrestaurant" element={<NewRestaurant />}/>
         <Route path="/restaurants" element={<Restaurants />}/>
         <Route path="/restaurants/:id" element={<ShowRestaurant user={user}/>} />
+        <Route path="/users" element={<Profile user={user}/>} />
       </Routes>
     </div>
     
