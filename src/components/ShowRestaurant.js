@@ -29,7 +29,7 @@ export default function ShowRestaurant({user}) {
         return <div>
             <p className='h4'>{review.author}: {review.comment}</p>
         {user && (user.id === review.user_id) ?
-        <button onClick={()=> {handleDeleteClick(review.id)}}>delete</button>
+        <button className='button' onClick={()=> {handleDeleteClick(review.id)}}>Remove Comment</button>
         : null}
         </div>
     })
@@ -118,29 +118,47 @@ export default function ShowRestaurant({user}) {
                 <p className='h4'>Average rating: {restaurant.rating}</p>
                 <p className='h4'>Phone: {restaurant.display_phone}</p>
                 <p className='h4'>Address: {restaurant.display_address}</p>
-                <p>Reviews</p>
+                <h3>Reviews</h3>
                 {allComments}
+                <br></br>
+                <br></br>
            
-            
+            <div className="box">
             <form onSubmit={handleSubmit}>
-                <input className="form__field" onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Review' />
+            <div className="input-container">
+                <input onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Review' />
+                </div>
                 <button className='button' type='submit'>Add Review</button>
             </form>
-
-            <p>Update Restaurant</p>
+            </div>
+            <br></br>
+            <br></br>
+            <div className="box">
+            <h2 className='login'>Update Restaurant</h2>
             <br></br>
             <br></br>
             <form onSubmit={handleUpdate}>
+            <div className="input-container">
             <input onChange={(e) => setName(e.target.value)} value={name} type="text" name="Name" placeholder='Name' />
+            </div>
+            <div className="input-container">
             <input onChange={(e) => setImage_Url(e.target.value)} value={image_url} type="text" name="Image" placeholder='Image' />
+            </div>
+            <div className="input-container">
             <input onChange={(e) => setPrice(e.target.value)} value={price} type="text" name="Price" placeholder='Price' />
+            </div>
+            <div className="input-container">
             <input onChange={(e) => setRating(e.target.value)} value={rating} type="text" name="Rating" placeholder='Rating' />
+            </div>
+            <div className="input-container">
             <input onChange={(e) => setDisplay_Phone(e.target.value)} value={display_phone} type="text" name="Phone" placeholder='Phone' />
+            </div>
+            <div className="input-container">
             <input onChange={(e) => setDisplay_Address(e.target.value)} value={display_address} type="text" name="Address" placeholder='Address' />
-            <br></br>
-            <br></br>
+            </div>
             <button className='button' type='submit'>Update Restaurant</button>
             </form>
+            </div>
             
     </>
   )

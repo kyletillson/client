@@ -4,7 +4,7 @@ import RestaurantCard from './RestaurantCard'
 export default function RestaurantList({restaurants, onDeleteRestaurant}) {
     
   return (
-    <div>
+    <div className='cards'>
         {restaurants.map((restaurant) => {
             return (
                 <RestaurantCard key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />

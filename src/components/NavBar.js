@@ -57,6 +57,7 @@ function NavBar({ user, setUser }) {
         )}
       </div>
       <br></br>
+      <br></br>
       {/* <button className="button" onClick={handleClick}>{user.username}</button> */}
      
 

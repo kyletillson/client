@@ -45,10 +45,15 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
+    <>
+    <br></br>
+    <br></br>
+    <div className="box">
     <form onSubmit={handleSubmit}>
-      <h1>Signup</h1>
-      <FormField>
+      <h1 className="signup">Signup</h1>
+      <div className="input-container">
         <label htmlFor="username">Username</label>
+        <br></br>
         <input
           type="text"
           id="username"
@@ -56,9 +61,12 @@ function SignUpForm({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </FormField>
-      <FormField>
+        <div/>
+        <br></br>
+        <div className="input-container">
+      
         <label htmlFor="password">Password</label>
+        <br></br>
         <input
           type="password"
           id="password"
@@ -66,9 +74,11 @@ function SignUpForm({ onLogin }) {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-      </FormField>
-      <FormField>
+        </div>
+      
+        <div className="input-container">
         <label htmlFor="password">Password Confirmation</label>
+        <br></br>
         <input
           type="password"
           id="password_confirmation"
@@ -76,34 +86,39 @@ function SignUpForm({ onLogin }) {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-      </FormField>
-      <FormField>
+        </div>
+        <div className="input-container">
         <label htmlFor="imageUrl">Profile Image</label>
+        <br></br>
         <input
           type="text"
           id="imageUrl"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
         />
-      </FormField>
-      <FormField>
+        </div>
+        <div className="input-container">
         <label htmlFor="bio">Bio</label>
-        <Textarea
+        <br></br>
+        <input
           rows="3"
           id="bio"
           value={bio}
           onChange={(e) => setBio(e.target.value)}
         />
-      </FormField>
-      <FormField>
+        </div>
+      
+      </div>
+      
         <button className="button" type="submit" >{isLoading ? "Loading..." : "Sign Up"}</button>
-      </FormField>
-      <FormField>
+      
         {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
-      </FormField>
+      
     </form>
+    </div>
+    </>
   );
 }
 

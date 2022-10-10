@@ -60,8 +60,8 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
   return (
     <>
     
-    <div>
-  
+    <div className='card'>
+      <div>
         <h4 className='title'>{name}</h4>
         <img className='img' src={image_url} alt={name}/>
         <h4 className='h4'>Price: {price}</h4>
@@ -71,8 +71,8 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
         <button className='button' onClick={handleDeleteClick}>Delete</button>
         <br></br>
         <br></br>
-        {/* <Link to={`/restaurants/${id}`}>View Restaurant</Link> */}
         <button className='button' onClick={handleClick}>More Info</button>
+        </div>
     </div>
     </>
   )
