@@ -10,6 +10,7 @@ function SignUpForm({ onLogin }) {
   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("")
 
   const navigate = useNavigate()
 
@@ -25,11 +26,12 @@ function SignUpForm({ onLogin }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        password,
+        username: username,
+        password: password,
         password_confirmation: passwordConfirmation,
         image_url: imageUrl,
-        bio,
+        bio: bio,
+        email: email
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -95,6 +97,16 @@ function SignUpForm({ onLogin }) {
           id="imageUrl"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
+        />
+        </div>
+        <div className="input-container">
+        <label htmlFor="imageUrl">Email</label>
+        <br></br>
+        <input
+          type="text"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         </div>
         <div className="input-container">

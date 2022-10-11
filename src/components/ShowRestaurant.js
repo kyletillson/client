@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
+import { Error } from '../styles'
 
 export default function ShowRestaurant({user}) {
+
+    const [errors, setErrors] = useState([]);
+
     const [restaurant, setRestaurant] = useState({
         reviews: []
     })
@@ -11,11 +15,25 @@ export default function ShowRestaurant({user}) {
     const [display_phone, setDisplay_Phone] = useState("")
     const [price, setPrice] = useState("")
     const [rating, setRating] = useState("")
-    const [updatedRestaurant, setUpdatedRestaurant] = useState([])
+    // const [updatedRestaurant, setUpdatedRestaurant] = useState([])
 
     
 
     const { id } = useParams()
+
+    const add = function addFavorite() {
+        fetch("/favorites", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            restaurant_id: id,
+          })
+        })
+        .then((r) => r.json())
+        .then(data => console.log(data))
+      }
 
     useEffect(() => {
         fetch(`/restaurants/${id}`)
@@ -76,10 +94,10 @@ export default function ShowRestaurant({user}) {
         .then((newReview) => onAddReview(newReview))
     }
 
-    function onUpdateRestaurant(updatedRestaurants) {
-        const updatedRestaurantPage = [...updatedRestaurant, updatedRestaurants]
-        setUpdatedRestaurant(updatedRestaurantPage)
-    }
+    // function onUpdateRestaurant(updatedRestaurants) {
+    //     const updatedRestaurantPage = [...updatedRestaurant, updatedRestaurants]
+    //     setUpdatedRestaurant(updatedRestaurantPage)
+    // }
 
 
     
@@ -98,10 +116,18 @@ export default function ShowRestaurant({user}) {
                 price: price,
                 display_phone: display_phone,
                 display_address: display_address,
-            })
+            }),
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then((updatedRestaurant) => {
+                    (setRestaurant(updatedRestaurant))
+                });
+            } else {
+                r.json().then((err) => setErrors(err.errors))
+            }
         })
-        .then((r) => r.json())
-        .then((updatedRestaurant) => (onUpdateRestaurant))
+        // .then((r) => r.json())
+        // .then((updatedRestaurant) => (setRestaurant(updatedRestaurant)))
     }
 
   
@@ -118,6 +144,7 @@ export default function ShowRestaurant({user}) {
                 <p className='h4'>Average rating: {restaurant.rating}</p>
                 <p className='h4'>Phone: {restaurant.display_phone}</p>
                 <p className='h4'>Address: {restaurant.display_address}</p>
+                <button className='button' onClick={add}>Favorite</button>
                 <h3>Reviews</h3>
                 {allComments}
                 <br></br>
@@ -157,6 +184,9 @@ export default function ShowRestaurant({user}) {
             <input onChange={(e) => setDisplay_Address(e.target.value)} value={display_address} type="text" name="Address" placeholder='Address' />
             </div>
             <button className='button' type='submit'>Update Restaurant</button>
+            {errors.map((err) => (
+          <Error key={err}>{err}</Error>
+        ))}
             </form>
             </div>
             

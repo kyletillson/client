@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { useParams } from "react-router-dom"
+import { Error } from '../styles'
 
-export default function Profile({ user }) {
+export default function Profile({ user, setUser }) {
 
   const [username, setUsername] = useState("")
   const [bio, setBio] = useState("")
@@ -10,6 +11,7 @@ export default function Profile({ user }) {
   const [image_url, setImage_url] = useState("")
   const [updatedUser, setUpdatedUser] = useState([])
   const [users, setUsers] = useState([])
+  const [errors, setErrors] = useState([]);
 
 
   const { id } = useParams()
@@ -46,10 +48,18 @@ export default function Profile({ user }) {
             password_confirmation: password_confirmation,
             image_url: image_url,
             bio: bio,
-        })
+        }),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((updatedUser) => {
+          (setUser(updatedUser))
+        });
+      } else {
+        r.json().then((err) => setErrors(err.errors))
+      }
     })
-    .then((r) => r.json())
-    .then((updatedUser) => (onUpdateUser))
+    // .then((r) => r.json())
+    // .then((updatedUser) => (setUser(updatedUser)))
 }
     if (user) {
         return <>
@@ -86,6 +96,9 @@ export default function Profile({ user }) {
             
             
             <button className='button' type='submit'>Update Profile</button>
+            {errors.map((err) => (
+          <Error key={err}>{err}</Error>
+        ))}
           </form>
           
           <br></br>

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import {useNavigate} from "react-router-dom"
+// import {useNavigate} from "react-router-dom"
+import { Error } from '../styles'
 
 export default function NewRestaurant() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [restaurants, setRestaurants] = useState([])
-  const [type_of_food, setType_of_food] = useState("")
+  const [display_address, setDisplay_Address] = useState("")
   const [name, setName] = useState("")
-  const [image, setImage] = useState("")
-  const [description, setDescription] = useState("")
+  const [image_url, setImage_Url] = useState("")
+  const [display_phone, setDisplay_Phone] = useState("")
   const [price, setPrice] = useState("")
+  const [rating, setRating] = useState("")
+  const [errors, setErrors] = useState([]);
 
   useEffect(()=> {
     fetch("/restaurants")
@@ -25,22 +28,31 @@ export default function NewRestaurant() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    navigate('/restaurants', {replace: true});
+    // navigate('/restaurants', {replace: true});
     fetch("/restaurants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        type_of_food: type_of_food,
-        name: name,
-        image: image,
-        description: description,
-        price: price,
+          name: name,
+          image_url: image_url,
+          rating: rating,
+          price: price,
+          display_phone: display_phone,
+          display_address: display_address,
       })
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((NewRestaurant) => {
+          onAddRestaurant(NewRestaurant)
+        });
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
     })
-    .then((r) => r.json())
-    .then((NewRestaurant) => onAddRestaurant(NewRestaurant))
+    // .then((r) => r.json())
+    // .then((NewRestaurant) => onAddRestaurant(NewRestaurant))
   }
   return (
     <>
@@ -52,32 +64,40 @@ export default function NewRestaurant() {
     <br></br>
     <form onSubmit={handleSubmit}>
     <div className="input-container">
-      <input onChange={(e) => setType_of_food(e.target.value)} value={type_of_food} type="text" name="Type of food" placeholder='Type of food' />
+      <input onChange={(e) => setName(e.target.value)} value={name} type="text" name="name" placeholder='Name' />
       <br></br>
       <br></br>
       </div>
       <div className="input-container">
-      <input onChange={(e) => setName(e.target.value)} value={name} type="text" name="Name" placeholder='Name' />
+      <input onChange={(e) => setImage_Url(e.target.value)} value={image_url} type="text" name="image" placeholder='Image' />
       <br></br>
       <br></br>
       </div>
       <div className="input-container">
-      <input onChange={(e) => setImage(e.target.value)} value={image} type="text" name="Image" placeholder='Image' />
+      <input onChange={(e) => setPrice(e.target.value)} value={price} type="text" name="price" placeholder='Price' />
       <br></br>
       <br></br>
       </div>
       <div className="input-container">
-      <input onChange={(e) => setDescription(e.target.value)} value={description} type="text" name="Description" placeholder='Description' />
+      <input onChange={(e) => setRating(e.target.value)} value={rating} type="text" name="rating" placeholder='Rating' />
       <br></br>
       <br></br>
       </div>
       <div className="input-container">
-      <input onChange={(e) => setPrice(e.target.value)} value={price} type="text" name="Price" placeholder='Price' />
+      <input onChange={(e) => setDisplay_Phone(e.target.value)} value={display_phone} type="text" name="phone" placeholder='Phone' />
       <br></br>
+      <br></br>
+      <br></br>
+      </div>
+      <div className="input-container">
+      <input onChange={(e) => setDisplay_Address(e.target.value)} value={display_address} type="text" name="address" placeholder='Address' />
       <br></br>
       <br></br>
       </div>
       <button className='button' type='submit'>Add Restaurant</button>
+      {errors.map((err) => (
+          <Error key={err}>{err}</Error>
+        ))}
     </form>
     </div>
     </>
