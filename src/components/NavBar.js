@@ -32,22 +32,64 @@ function NavBar({ user, setUser }) {
         <Link to="/">Home</Link>
       </div>
       <div>
-        <Link to="/login">Login</Link>
+      {user ? (
+           <></>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+          </>
+        )}
+        {/* <Link to="/login">Login</Link> */}
       </div>
       <div>
-        <Link to="/signup">Signup</Link>
+      {user ? (
+          <></>
+        ) : (
+          <>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
+        {/* <Link to="/signup">Signup</Link> */}
       </div>
       <div>
-        <Link to="/newrestaurant">New Restaurant</Link>
+      {user ? (
+           <Link to="/newrestaurant">New Restaurant</Link>
+        ) : (
+          <>
+            
+          </>
+        )}
+        {/* <Link to="/newrestaurant">New Restaurant</Link> */}
       </div>
       <div>
-        <Link to="/restaurants">Restaurants</Link>
+      {user ? (
+           <Link to="/restaurants">Restaurants</Link>
+        ) : (
+          <>
+            
+          </>
+        )}
+        {/* <Link to="/restaurants">Restaurants</Link> */}
       </div>
       <div>
-        <Link to="/users">Profile</Link>
+      {user ? (
+          <Link to="/users">Profile</Link>
+        ) : (
+          <>
+            
+          </>
+        )}
+        {/* <Link to="/users">Profile</Link> */}
       </div>
       <div>
-        <Link to="/favorites">Favorites</Link>
+      {user ? (
+          <Link to="/favorites">Favorites</Link>
+        ) : (
+          <>
+            
+          </>
+        )}
+        {/* <Link to="/favorites">Favorites</Link> */}
       </div>
       <div>
         <br></br>

@@ -9,17 +9,17 @@ export default function Profile({ user, setUser }) {
   const [password, setPassword] = useState("")
   const [password_confirmation, setPassword_Confirmation] = useState("")
   const [image_url, setImage_url] = useState("")
-  const [updatedUser, setUpdatedUser] = useState([])
+  // const [updatedUser, setUpdatedUser] = useState([])
   const [users, setUsers] = useState([])
   const [errors, setErrors] = useState([]);
 
 
   const { id } = useParams()
 
-  function onUpdateUser(updatedUsers) {
-    const updatedUserPage = [...updatedUser, updatedUsers]
-    setUpdatedUser(updatedUserPage)
-}
+//   function onUpdateUser(updatedUsers) {
+//     const updatedUserPage = [...updatedUser, updatedUsers]
+//     setUpdatedUser(updatedUserPage)
+// }
 
   function onDeleteUser() {
     const deleteUser = users.filter((user) => user.id !== id)

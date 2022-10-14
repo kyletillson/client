@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { Error } from '../styles'
+import Map from './Map';
+// import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 export default function ShowRestaurant({user}) {
 
@@ -32,7 +34,7 @@ export default function ShowRestaurant({user}) {
           })
         })
         .then((r) => r.json())
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
       }
 
     useEffect(() => {
@@ -42,14 +44,18 @@ export default function ShowRestaurant({user}) {
     }, [])
 
 
+
+        
+
+        
     
       const allComments = restaurant.reviews.map((review) => {
         return <div>
-            <p className='h4'>{review.author}: {review.comment}</p>
-        {user && (user.id === review.user_id) ?
-        <button className='button' onClick={()=> {handleDeleteClick(review.id)}}>Remove Comment</button>
-        : null}
-        </div>
+                <p className='h4'>{review.author}: {review.comment}</p>
+                {user && (user.id === review.user_id) ?
+                <button className='button' onClick={()=> {handleDeleteClick(review.id)}}>Remove Comment</button>
+                : null}
+                </div>
     })
 
 
@@ -130,6 +136,40 @@ export default function ShowRestaurant({user}) {
         // .then((updatedRestaurant) => (setRestaurant(updatedRestaurant)))
     }
 
+
+    // MAPPPPPPPPPPPPPPPPPPPPPPPP
+
+//     mapboxgl.accessToken = 'pk.eyJ1Ijoia3lsZXRpbGxzb24iLCJhIjoiY2w4bWY1aThtMGV1dTNubXlpbTh0cDI4eSJ9.MqRCL4Aiv3OYWHQEZfrU8A';
+
+// console.log(restaurant.latitude)
+
+//     const mapContainer = useRef(null);
+// const map = useRef(null);
+// const [lng, setLng] = useState(restaurant.longitude);
+// const [lat, setLat] = useState(restaurant.latitude);
+// const [zoom, setZoom] = useState(9);
+ 
+// useEffect(() => {
+// if (map.current) return; // initialize map only once
+// map.current = new mapboxgl.Map({
+// container: mapContainer.current,
+// style: 'mapbox://styles/mapbox/streets-v11',
+// center: [lng, lat],
+// zoom: zoom
+// });
+// });
+ 
+// useEffect(() => {
+// if (!map.current) return; // wait for map to initialize
+// map.current.on('move', () => {
+// setLng(map.current.getCenter().lng.toFixed(4));
+// setLat(map.current.getCenter().lat.toFixed(4));
+// setZoom(map.current.getZoom().toFixed(2));
+// });
+// });
+
+
+
   
 
 
@@ -158,6 +198,10 @@ export default function ShowRestaurant({user}) {
                 <button className='button' type='submit'>Add Review</button>
             </form>
             </div>
+            <br></br>
+            <br></br>
+            {restaurant.latitude && restaurant.longitude ?  <Map latitude={restaurant.latitude} longitude={restaurant.longitude}/> : null}
+            <br></br>
             <br></br>
             <br></br>
             <div className="box">
@@ -189,6 +233,15 @@ export default function ShowRestaurant({user}) {
         ))}
             </form>
             </div>
+            {/* {restaurant.latitude && restaurant.longitude ?  <Map latitude={restaurant.latitude} longitude={restaurant.longitude}/> : null} */}
+           
+            {/* MAPPPPPPPPPPPPPPPPPPPPPPPP */}
+            {/* <div>
+<div className="sidebar">
+Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+</div>
+<div ref={mapContainer} className="map-container" />
+</div> */}
             
     </>
   )

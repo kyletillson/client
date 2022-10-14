@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Error, FormField, Textarea } from "../styles";
+import { Error } from "../styles";
 import { useNavigate } from 'react-router-dom'
 
 function SignUpForm({ onLogin }) {
