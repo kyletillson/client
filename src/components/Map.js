@@ -28,7 +28,7 @@ container: mapContainer.current,
 style: 'mapbox://styles/mapbox/outdoors-v11',
 center: [lng, lat],
 zoom: 17,
-interactive: false,
+interactive: true,
 });
 });
  

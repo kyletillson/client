@@ -34,6 +34,10 @@ function Login({ setUser }) {
     });
   }
 
+//   const handleClick = () => {
+//     navigate("/restaurants")
+// }
+
   return (
     <>
     <br></br>

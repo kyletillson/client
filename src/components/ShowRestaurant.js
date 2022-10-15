@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
-import { Error } from '../styles'
+// import { Error } from '../styles'
 import Map from './Map';
+import { useNavigate } from 'react-router-dom'
 // import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 export default function ShowRestaurant({user}) {
 
-    const [errors, setErrors] = useState([]);
+    const navigate = useNavigate()
+
+    // const [errors, setErrors] = useState([]);
 
     const [restaurant, setRestaurant] = useState({
         reviews: []
     })
-    const [display_address, setDisplay_Address] = useState("")
-    const [name, setName] = useState("")
-    const [image_url, setImage_Url] = useState("")
-    const [display_phone, setDisplay_Phone] = useState("")
-    const [price, setPrice] = useState("")
-    const [rating, setRating] = useState("")
+    // const [display_address, setDisplay_Address] = useState("")
+    // const [name, setName] = useState("")
+    // const [image_url, setImage_Url] = useState("")
+    // const [display_phone, setDisplay_Phone] = useState("")
+    // const [price, setPrice] = useState("")
+    // const [rating, setRating] = useState("")
     // const [updatedRestaurant, setUpdatedRestaurant] = useState([])
 
     
@@ -51,10 +54,12 @@ export default function ShowRestaurant({user}) {
     
       const allComments = restaurant.reviews.map((review) => {
         return <div>
-                <p className='h4'>{review.author}: {review.comment}</p>
-                {user && (user.id === review.user_id) ?
-                <button className='button' onClick={()=> {handleDeleteClick(review.id)}}>Remove Comment</button>
-                : null}
+                <p className='h4'>{review.author}: {review.comment} {user && (user.id === review.user_id) ?
+                <button className='button-delete' onClick={()=> {handleDeleteClick(review.id)}}>Delete</button>
+                : null} </p>
+                {/* {user && (user.id === review.user_id) ?
+                <button className='button' onClick={()=> {handleDeleteClick(review.id)}}>Delete</button>
+                : null} */}
                 </div>
     })
 
@@ -107,34 +112,34 @@ export default function ShowRestaurant({user}) {
 
 
     
-    function handleUpdate (e) {
-        e.preventDefault();
-        fetch(`/restaurants/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                id: id,
-                name: name,
-                image_url: image_url,
-                rating: rating,
-                price: price,
-                display_phone: display_phone,
-                display_address: display_address,
-            }),
-        }).then((r) => {
-            if (r.ok) {
-                r.json().then((updatedRestaurant) => {
-                    (setRestaurant(updatedRestaurant))
-                });
-            } else {
-                r.json().then((err) => setErrors(err.errors))
-            }
-        })
-        // .then((r) => r.json())
-        // .then((updatedRestaurant) => (setRestaurant(updatedRestaurant)))
-    }
+    // function handleUpdate (e) {
+    //     e.preventDefault();
+    //     fetch(`/restaurants/${id}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             id: id,
+    //             name: name,
+    //             image_url: image_url,
+    //             rating: rating,
+    //             price: price,
+    //             display_phone: display_phone,
+    //             display_address: display_address,
+    //         }),
+    //     }).then((r) => {
+    //         if (r.ok) {
+    //             r.json().then((updatedRestaurant) => {
+    //                 (setRestaurant(updatedRestaurant))
+    //             });
+    //         } else {
+    //             r.json().then((err) => setErrors(err.errors))
+    //         }
+    //     })
+    //     // .then((r) => r.json())
+    //     // .then((updatedRestaurant) => (setRestaurant(updatedRestaurant)))
+    // }
 
 
     // MAPPPPPPPPPPPPPPPPPPPPPPPP
@@ -168,9 +173,31 @@ export default function ShowRestaurant({user}) {
 // });
 // });
 
+// const [likes, setLikes] = useState(0)
+
+// function addLikes() {
+//     fetch(`/restaurants/${id}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-type": "application/json"
+//       },
+//       body: JSON.stringify({
+//         likes: likes +1,
+//       }),
+//     })
+//     .then((r) => r.json())
+//     .then((data) => setLikes(data))
+//   }
+// const [count, setCount] = useState(0);
+
+//   let incrementCount = () => {
+//     setCount(count + 1);
+//   };
 
 
-  
+const handleClick = () => {
+    navigate("/request_change")
+}
 
 
     
@@ -189,6 +216,7 @@ export default function ShowRestaurant({user}) {
                 {allComments}
                 <br></br>
                 <br></br>
+                {/* <button className='button' onClick={addLikes}>Like</button> */}
            
             <div className="box">
             <form onSubmit={handleSubmit}>
@@ -204,7 +232,9 @@ export default function ShowRestaurant({user}) {
             <br></br>
             <br></br>
             <br></br>
-            <div className="box">
+            <p className='h4'>Incorrect information?</p>
+            <button className='button' onClick={handleClick}>Request change</button>
+            {/* <div className="box">
             <h2 className='login'>Update Restaurant</h2>
             <br></br>
             <br></br>
@@ -232,7 +262,7 @@ export default function ShowRestaurant({user}) {
           <Error key={err}>{err}</Error>
         ))}
             </form>
-            </div>
+            </div> */}
             {/* {restaurant.latitude && restaurant.longitude ?  <Map latitude={restaurant.latitude} longitude={restaurant.longitude}/> : null} */}
            
             {/* MAPPPPPPPPPPPPPPPPPPPPPPPP */}

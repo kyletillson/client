@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import RequestRestaurant from "./RequestRestaurant";
+import RequestChange from "./RequestChange";
 
 import Home from "./Home";
 import Login from "./Login";
@@ -118,6 +120,8 @@ function NavBar({ user, setUser }) {
         <Route path="/restaurants/:id" element={<ShowRestaurant user={user}/>} />
         <Route path="/favorites" element={<Favorites user={user}/>} />
         <Route path="/users" element={<Profile user={user} setUser={setUser}/>} />
+        <Route path="/request_restaurant" element={<RequestRestaurant user={user} setUser={setUser}/>} />
+        <Route path="/request_change" element={<RequestChange user={user} setUser={setUser}/>} />
       </Routes>
     </div>
     
