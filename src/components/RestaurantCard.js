@@ -20,7 +20,7 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
 
   
     
-    const {id, name, image_url, rating, price} = restaurant;
+    const {id, name, image_url, rating, price, cuisine} = restaurant;
     
     // function handleDeleteClick() {
     //     fetch(`/restaurants/${id}`, {
@@ -38,6 +38,7 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
       <div>
         <h4 className='title'>{name}</h4>
         <img className='img' src={image_url} alt={name}/>
+        <h3 className='h3'>Cuisine: {cuisine}</h3>
         <h4 className='h4'>Price: {price}</h4>
         <h3 className='h3'>Average rating: {rating}</h3>
         {/* <button className='button' onClick={handleDeleteClick}>Delete</button> */}

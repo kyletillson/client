@@ -199,19 +199,27 @@ const handleClick = () => {
     navigate("/request_change")
 }
 
+// const menu = () => {
+//   navigate({restaurant.menu})
+// }
+
 
     
   return (
     <>
     
             
-                <p className='title'>{restaurant.name}</p>
+                <h1 className='title'>{restaurant.name}</h1>
                 <img className='img' src={restaurant.image_url} alt={restaurant.name} />
-                <p className='h3'>Price: {restaurant.price}</p>
-                <p className='h4'>Average rating: {restaurant.rating}</p>
-                <p className='h4'>Phone: {restaurant.display_phone}</p>
-                <p className='h4'>Address: {restaurant.display_address}</p>
+                <h1 className='h4'>Cuisine: {restaurant.cuisine}</h1>
+                <h1 className='h3'>Price: {restaurant.price}</h1>
+                <h1 className='h4'>Average rating: {restaurant.rating}</h1>
+                <h1 className='h4'>Phone: {restaurant.display_phone}</h1>
+                <h1 className='h4'>Address: {restaurant.display_address}</h1>
                 <button className='button' onClick={add}>Favorite</button>
+                <br></br>
+                <br></br>
+                <a className='button-delete' href={restaurant.menu}>Menu</a>
                 <h3>Reviews</h3>
                 {allComments}
                 <br></br>
