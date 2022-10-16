@@ -21,15 +21,13 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
   
     
     const {id, name, image_url, rating, price, cuisine} = restaurant;
-    
-    // function handleDeleteClick() {
-    //     fetch(`/restaurants/${id}`, {
-    //         method: "DELETE",
-    
-    //     })
-    //     onDeleteRestaurant(id)
-    // }
+  
 
+
+  // let counter = 0;
+  // for (let i = 0; i < restaurant.reviews.length; i++) {
+  //   counter++;
+  // }
     
   return (
     <>
@@ -41,6 +39,7 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
         <h3 className='h3'>Cuisine: {cuisine}</h3>
         <h4 className='h4'>Price: {price}</h4>
         <h3 className='h3'>Average rating: {rating}</h3>
+        {/* <h4 className='h3'> reviews</h4> */}
         {/* <button className='button' onClick={handleDeleteClick}>Delete</button> */}
         
         <button className='button' onClick={handleClick}>More Info</button>

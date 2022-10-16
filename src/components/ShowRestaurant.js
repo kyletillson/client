@@ -203,12 +203,13 @@ const handleClick = () => {
 //   navigate({restaurant.menu})
 // }
 
-
+const count = restaurant.reviews.length
     
   return (
     <>
     
             
+                
                 <h1 className='title'>{restaurant.name}</h1>
                 <img className='img' src={restaurant.image_url} alt={restaurant.name} />
                 <h1 className='h4'>Cuisine: {restaurant.cuisine}</h1>
@@ -220,7 +221,8 @@ const handleClick = () => {
                 <br></br>
                 <br></br>
                 <a className='button-delete' href={restaurant.menu}>Menu</a>
-                <h3>Reviews</h3>
+                {count > 0 ? <h3>{count} Reviews</h3> :<h3>0 Reviews</h3>}
+                {/* <h3>{count} Reviews</h3> */}
                 {allComments}
                 <br></br>
                 <br></br>

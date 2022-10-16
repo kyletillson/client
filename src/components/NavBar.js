@@ -53,7 +53,7 @@ function NavBar({ user, setUser }) {
         )}
         {/* <Link to="/signup">Signup</Link> */}
       </div>
-      <div>
+      {/* <div>
       {user ? (
            <Link to="/newrestaurant">New Restaurant</Link>
         ) : (
@@ -61,8 +61,8 @@ function NavBar({ user, setUser }) {
             
           </>
         )}
-        {/* <Link to="/newrestaurant">New Restaurant</Link> */}
-      </div>
+        
+      </div> */}
       <div>
       {user ? (
            <Link to="/restaurants">Restaurants</Link>

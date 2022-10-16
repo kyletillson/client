@@ -508,3 +508,11 @@ animation: hoverShake 0.15s linear 3;
 .button-delete:focus {
   opacity: .75;
 }
+
+/* .show-card {
+  flex-direction: row;
+  border-bottom: 0.0625rem solid #ff0000;
+  display: flex;
+  padding: 16px 0;
+  position: relative;
+} */
