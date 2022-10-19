@@ -11,7 +11,11 @@ export default function RequestChange() {
 
      function handleUpdate (e) {
         e.preventDefault();
-        fetch("/newrestaurants", {
+        setRestaurant_Name("");
+        setRestaurant_City("");
+        setRestaurant_State("");
+        setRestaurant_Zip("");
+        fetch("/new_restaurants", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -31,6 +35,8 @@ export default function RequestChange() {
         })
         .then((r) => r.json())
     }
+
+    
   return (
     <>
     <br></br>

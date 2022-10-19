@@ -36,6 +36,11 @@ export default function Profile({ user, setUser }) {
 
   function handleUpdate (e) {
     e.preventDefault();
+    setUsername("");
+    setBio("");
+    setPassword("");
+    setPassword_Confirmation("");
+    setImage_url("");
     fetch("/update", {
         method: "PATCH",
         headers: {

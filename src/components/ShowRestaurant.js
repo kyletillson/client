@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 // import { Error } from '../styles'
 import Map from './Map';
 import { useNavigate } from 'react-router-dom'
+import { format } from 'date-fns'
 // import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 export default function ShowRestaurant({user}) {
@@ -40,21 +41,25 @@ export default function ShowRestaurant({user}) {
         // .then(data => console.log(data))
       }
 
+    
+
     useEffect(() => {
         fetch(`/restaurants/${id}`)
         .then(res => res.json())
         .then(data => setRestaurant(data))
-    }, [])
+    }, [id])
 
 
 
         
+    const date = new Date();
 
+    const revDate = format(date, 'MM/dd/yyyy')
         
     
       const allComments = restaurant.reviews.map((review) => {
-        return <div>
-                <p className='h4'>{review.author}: {review.comment} {user && (user.id === review.user_id) ?
+        return <div className='review'>
+                <p className='h4'>{review.author}: commented on {review.time} <br></br> {review.comment} <br></br> {user && (user.id === review.user_id) ?
                 <button className='button-delete' onClick={()=> {handleDeleteClick(review.id)}}>Delete</button>
                 : null} </p>
                 {/* {user && (user.id === review.user_id) ?
@@ -105,96 +110,6 @@ export default function ShowRestaurant({user}) {
         .then((newReview) => onAddReview(newReview))
     }
 
-    // function onUpdateRestaurant(updatedRestaurants) {
-    //     const updatedRestaurantPage = [...updatedRestaurant, updatedRestaurants]
-    //     setUpdatedRestaurant(updatedRestaurantPage)
-    // }
-
-
-    
-    // function handleUpdate (e) {
-    //     e.preventDefault();
-    //     fetch(`/restaurants/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             id: id,
-    //             name: name,
-    //             image_url: image_url,
-    //             rating: rating,
-    //             price: price,
-    //             display_phone: display_phone,
-    //             display_address: display_address,
-    //         }),
-    //     }).then((r) => {
-    //         if (r.ok) {
-    //             r.json().then((updatedRestaurant) => {
-    //                 (setRestaurant(updatedRestaurant))
-    //             });
-    //         } else {
-    //             r.json().then((err) => setErrors(err.errors))
-    //         }
-    //     })
-    //     // .then((r) => r.json())
-    //     // .then((updatedRestaurant) => (setRestaurant(updatedRestaurant)))
-    // }
-
-
-    // MAPPPPPPPPPPPPPPPPPPPPPPPP
-
-//     mapboxgl.accessToken = 'pk.eyJ1Ijoia3lsZXRpbGxzb24iLCJhIjoiY2w4bWY1aThtMGV1dTNubXlpbTh0cDI4eSJ9.MqRCL4Aiv3OYWHQEZfrU8A';
-
-// console.log(restaurant.latitude)
-
-//     const mapContainer = useRef(null);
-// const map = useRef(null);
-// const [lng, setLng] = useState(restaurant.longitude);
-// const [lat, setLat] = useState(restaurant.latitude);
-// const [zoom, setZoom] = useState(9);
- 
-// useEffect(() => {
-// if (map.current) return; // initialize map only once
-// map.current = new mapboxgl.Map({
-// container: mapContainer.current,
-// style: 'mapbox://styles/mapbox/streets-v11',
-// center: [lng, lat],
-// zoom: zoom
-// });
-// });
- 
-// useEffect(() => {
-// if (!map.current) return; // wait for map to initialize
-// map.current.on('move', () => {
-// setLng(map.current.getCenter().lng.toFixed(4));
-// setLat(map.current.getCenter().lat.toFixed(4));
-// setZoom(map.current.getZoom().toFixed(2));
-// });
-// });
-
-// const [likes, setLikes] = useState(0)
-
-// function addLikes() {
-//     fetch(`/restaurants/${id}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-type": "application/json"
-//       },
-//       body: JSON.stringify({
-//         likes: likes +1,
-//       }),
-//     })
-//     .then((r) => r.json())
-//     .then((data) => setLikes(data))
-//   }
-// const [count, setCount] = useState(0);
-
-//   let incrementCount = () => {
-//     setCount(count + 1);
-//   };
-
-
 const handleClick = () => {
     navigate("/request_change")
 }
@@ -204,6 +119,10 @@ const handleClick = () => {
 // }
 
 const count = restaurant.reviews.length
+
+const favCount = restaurant.favorites ? restaurant.favorites.length : null
+
+
     
   return (
     <>
@@ -216,12 +135,15 @@ const count = restaurant.reviews.length
                 <h1 className='h3'>Price: {restaurant.price}</h1>
                 <h1 className='h4'>Average rating: {restaurant.rating}</h1>
                 <h1 className='h4'>Phone: {restaurant.display_phone}</h1>
-                <h1 className='h4'>Address: {restaurant.display_address}</h1>
+                {/* <h1 className='h4'>Address: {restaurant.display_address}</h1> */}
+                {/* <a className='h4' href={'https://www.google.com/maps/search/' + restaurant.display_address}>{restaurant.display_address}</a> */}
+                <a className='h4' href={'https://www.google.com/maps/search/' + restaurant.name + restaurant.display_address}>{restaurant.display_address}</a>
+                {favCount ? <h3>Favorited by {favCount} others</h3> : <h3>Be the first to favorite this restaurant!</h3>}
                 <button className='button' onClick={add}>Favorite</button>
                 <br></br>
                 <br></br>
                 <a className='button-delete' href={restaurant.menu}>Menu</a>
-                {count > 0 ? <h3>{count} Reviews</h3> :<h3>0 Reviews</h3>}
+                {count > 0 ? <h3>{count} Reviews</h3> : <h3>0 Reviews</h3>}
                 {/* <h3>{count} Reviews</h3> */}
                 {allComments}
                 <br></br>

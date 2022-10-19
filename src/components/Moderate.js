@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
+export default function Moderate({ restaurant, onDeleteRestaurant }) {
   
   const navigate = useNavigate()
 
@@ -33,8 +33,7 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
     
   return (
     <>
-    
-    <div className='card'>
+    {restaurant.price === "$$" ? <div className='card'>
       <div>
         <h4 className='title'>{name}</h4>
         <img className='img' src={image_url} alt={name}/>
@@ -46,7 +45,8 @@ export default function RestaurantCard({ restaurant, onDeleteRestaurant }) {
         
         <button className='button' onClick={handleClick}>More Info</button>
         </div>
-    </div>
+    </div> : null}
+    
     </>
   )
 }
