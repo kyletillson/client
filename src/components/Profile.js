@@ -71,11 +71,13 @@ export default function Profile({ user, setUser }) {
         
         <div className='text-centered'>
         <h1>Hello,   {user.username}! Welcome to your profile!</h1>
-        <img className="image text-centered" src={user.image_url} alt={user.username} />
+        <img className="mx-auto rounded-full w-1/12 h-1/12" src={user.image_url} alt={user.username} />
         <h4 className="h4">Bio: {user.bio}</h4>
         </div>
         <div className='box'>
+        <div className='text-centered'>
           <h1 className='login'>Edit Profile</h1>
+          </div>
           <div>
           <form onSubmit={handleUpdate}>
           <div className="input-container">

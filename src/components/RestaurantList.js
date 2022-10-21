@@ -99,6 +99,8 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
         </div>
     <div className='text-centered'>
     <p className='h3 text-centered'>Don't see your favorite restaurant?</p>
+    </div>
+    <div className='button-centered'>
     <button className='bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded' onClick={handleClick}>Request Restaurant</button>
     </div>
     </>

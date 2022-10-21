@@ -27,7 +27,7 @@ map.current = new mapboxgl.Map({
 container: mapContainer.current,
 style: 'mapbox://styles/mapbox/outdoors-v11',
 center: [lng, lat],
-zoom: 17,
+zoom: 18,
 interactive: true,
 });
 });

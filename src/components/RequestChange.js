@@ -43,7 +43,9 @@ export default function RequestChange() {
     <br></br>
     <br></br>
     <div className="box">
+    <div className='text-centered'>
             <h2 className='login'>Request Change</h2>
+            </div>
             <br></br>
             <br></br>
             <form onSubmit={handleUpdate}>
@@ -59,7 +61,9 @@ export default function RequestChange() {
             <div className="input-container">
             <input onChange={(e) => setRestaurant_Zip(e.target.value)} value={restaurant_zip} type="text" name="Zip Code" placeholder='Restaurant Zip Code' />
             </div>
+            <div className='text-centered'>
             <button className='button' type='submit'>Submit Request</button>
+            </div>
             {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}

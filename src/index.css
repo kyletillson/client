@@ -2,6 +2,7 @@ body {
   background-color: #ffffff;
 }
 
+
 .login {
   color: rgb(185, 28, 28);
 }
@@ -16,7 +17,7 @@ body {
 	background-color: rgb(255, 255, 255);
   width: 300px;
   padding:50px 50px;
-  box-shadow: 0 2px 20px 0 rgb(185, 28, 28); 
+  box-shadow: 0 2px 20px 0 rgb(68, 68, 68); 
 }
 
 .centered{
@@ -29,6 +30,19 @@ body {
 
 .text-centered{
   text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.button-centered{
+  text-align: center;
+  
+}
+
+.page-centered{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .input-container{
@@ -405,7 +419,8 @@ animation: hoverShake 0.15s linear 3;
 }
 
 .map-container {
-  height: 500px;
+  height: 300px;
+  width: 300px;
 }
 
 .sidebar {

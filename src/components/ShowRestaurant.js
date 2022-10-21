@@ -61,7 +61,7 @@ export default function ShowRestaurant({user}) {
         
     
       const allComments = restaurant.reviews.map((review) => {
-        return <div className='text-centered'> 
+        return <div className='page-centered'> 
                 <p className='h4'>{review.author}: commented on {review.created_at} <br></br> {review.comment} <br></br> {user && (user.id === review.user_id) ?
                 <button className='button-delete' onClick={()=> {handleDeleteClick(review.id)}}>Delete</button>
                 : null} </p>
@@ -165,13 +165,29 @@ function handleDeleteFavorite(id) {
               </div>
           </div>
           <div>
-          <div className='text-centered'>
-                {favCount ? <h3>Favorited by {favCount} others</h3> : <h3>Be the first to favorite this restaurant!</h3>}
+          
+          <div className='page-centered'>
+                {favCount ? <h3 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Favorited by {favCount} others</h3> : <h3 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Be the first to favorite this restaurant!</h3>}
                 </div>
                 <br></br>
+                <h3 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Location on map</h3>
+          <div class="container mx-auto">
+            <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 centered">
+              <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+                <div class="relative pb-48 overflow-hidden">
+                {restaurant.latitude && restaurant.longitude ?  <Map latitude={restaurant.latitude} longitude={restaurant.longitude}/> : null}
+                </div>
+              <div class="p-4">
+                   <h2 class="mt-2 mb-2  font-bold">{restaurant.name}</h2>
+                    <a className="mt-2 mb-2  font-bold" href={'https://www.google.com/maps/search/' + restaurant.name + restaurant.display_address}>{restaurant.display_address}</a>
+                  </div>
+                </div>
+              </div>
+          </div>
                 <br></br>
-                <div className='text-centered'>
-                {count > 0 ? <h3>{count} Reviews</h3> : <h3>0 Reviews</h3>}
+                <br></br>
+                <div className='page-centered'>
+                {count > 0 ? <h3 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>{count} Reviews</h3> : <h3 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>0 Reviews</h3>}
                 </div>
                 {allComments}
                 <br></br>
@@ -188,7 +204,19 @@ function handleDeleteFavorite(id) {
                 </div>
                 <br></br>
                 <br></br>
-                {restaurant.latitude && restaurant.longitude ?  <Map latitude={restaurant.latitude} longitude={restaurant.longitude}/> : null}
+
+               
+
+
+                
+                {/* {restaurant.latitude && restaurant.longitude ?  <Map latitude={restaurant.latitude} longitude={restaurant.longitude}/> : null} */}
+                
+
+
+
+
+
+
                 <br></br>
                 <br></br>
                 <br></br>
