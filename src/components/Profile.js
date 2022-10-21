@@ -68,9 +68,10 @@ export default function Profile({ user, setUser }) {
 }
     if (user) {
         return <>
-        <div>
+        
+        <div className='text-centered'>
         <h1>Hello,   {user.username}! Welcome to your profile!</h1>
-        <img className="image" src={user.image_url} alt={user.username} ></img>
+        <img className="image text-centered" src={user.image_url} alt={user.username} />
         <h4 className="h4">Bio: {user.bio}</h4>
         </div>
         <div className='box'>
@@ -99,21 +100,25 @@ export default function Profile({ user, setUser }) {
             <input onChange={(e) => setBio(e.target.value)} value={bio} type="text" name='Bio' placeholder='Bio'/>
             </div>
             
-            
+            <div className='text-centered'>
             <button className='button' type='submit'>Update Profile</button>
+            </div>
             {errors.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
           </form>
           
           <br></br>
+          <div className='text-centered'>
           <button className='button' onClick={handleDeleteClick}>Delete Account</button>
+          </div>
           
           </div>
 
         </div>
+        
         </>
       } else {
-        return <h1>Please Log In or Sign Up</h1>;
+        return <div className='text-centered'> <h1>Please Log In or Sign Up</h1> </div>;
       }
 }

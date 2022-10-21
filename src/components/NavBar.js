@@ -88,7 +88,7 @@ function NavBar({ user, setUser }) {
           <Link to="/favorites">Favorites</Link>
         ) : (
           <>
-            
+         
           </>
         )}
         {/* <Link to="/favorites">Favorites</Link> */}

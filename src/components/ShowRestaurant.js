@@ -61,11 +61,12 @@ export default function ShowRestaurant({user}) {
         
     
       const allComments = restaurant.reviews.map((review) => {
-        return <div className='review'>
+        return <div className='text-centered'> 
                 <p className='h4'>{review.author}: commented on {review.created_at} <br></br> {review.comment} <br></br> {user && (user.id === review.user_id) ?
                 <button className='button-delete' onClick={()=> {handleDeleteClick(review.id)}}>Delete</button>
                 : null} </p>
                 </div>
+                
     })
 
 
@@ -136,19 +137,42 @@ function handleDeleteFavorite(id) {
     
   return (
     <>
-                <h1 className='title'>{restaurant.name}</h1>
-                <img className='img' src={restaurant.image_url} alt={restaurant.name} />
-                <h1 className='h4'>Cuisine: {restaurant.cuisine}</h1>
-                <h1 className='h3'>Price: {restaurant.price}</h1>
-                <h1 className='h4'>Average rating: {restaurant.rating}</h1>
-                <h1 className='h4'>Phone: {restaurant.display_phone}</h1>
-                <a className='h4' href={'https://www.google.com/maps/search/' + restaurant.name + restaurant.display_address}>{restaurant.display_address}</a>
+
+
+                <div class="container mx-auto">
+            <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 centered">
+              <div class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+                <div class="relative pb-48 overflow-hidden">
+                  <img class="absolute inset-0 h-full w-full object-cover" src={restaurant.image_url} alt={restaurant.name}/>
+                </div>
+              <div class="p-4">
+                <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">{restaurant.cuisine}</span>
+                  <h2 class="mt-2 mb-2  font-bold">{restaurant.name}</h2>
+                    <p class="mt-2 mb-2  font-bold">Average rating: {restaurant.rating}</p>
+                    <p class="mt-2 mb-2  font-bold">Phone: {restaurant.display_phone}</p>
+                    <a className="mt-2 mb-2  font-bold" href={'https://www.google.com/maps/search/' + restaurant.name + restaurant.display_address}>{restaurant.display_address}</a>
+                  <div class="mt-3 flex items-center">
+                    <span class="font-bold text-xl">{restaurant.price}</span>
+                  </div>
+                </div>
+              <div class="p-4 border-t border-b text-xs text-gray-700">
+                <span class="flex items-center mb-1">
+                {favorite ? <button className='far fa-clock fa-fw mr-2 text-gray-900' onClick={() => handleDeleteFavorite(favorite.id)}>unfavorite</button> : <button className='far fa-clock fa-fw mr-2 text-gray-900' onClick={add}>Favorite</button>}
+                <a className='far fa-clock fa-fw mr-2 text-gray-900' href={restaurant.menu}>Menu</a>
+                    </span>  
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div>
+          <div className='text-centered'>
                 {favCount ? <h3>Favorited by {favCount} others</h3> : <h3>Be the first to favorite this restaurant!</h3>}
-                {favorite ? <button className='button' onClick={() => handleDeleteFavorite(favorite.id)}>unfavorite</button> : <button className='button' onClick={add}>Favorite</button>}
+                </div>
                 <br></br>
                 <br></br>
-                <a className='button-delete' href={restaurant.menu}>Menu</a>
+                <div className='text-centered'>
                 {count > 0 ? <h3>{count} Reviews</h3> : <h3>0 Reviews</h3>}
+                </div>
                 {allComments}
                 <br></br>
                 <br></br>
@@ -157,7 +181,9 @@ function handleDeleteFavorite(id) {
                 <div className="input-container">
                 <input onChange={(e) => setComment(e.target.value)} value={comment} type="text" placeholder='Review' />
                 </div>
+                <div className='text-centered'>
                 <button className='button' type='submit'>Add Review</button>
+                </div>
                 </form>
                 </div>
                 <br></br>
@@ -166,8 +192,11 @@ function handleDeleteFavorite(id) {
                 <br></br>
                 <br></br>
                 <br></br>
+                <div className='text-centered'>
                 <p className='h4'>Incorrect information?</p>
                 <button className='button' onClick={handleClick}>Request change</button>
+                </div>
+                </div>
       </>
   )
 }

@@ -12,5 +12,10 @@ export default function Search({ searchTerm, onSearchChange }) {
         onChange={(e) => onSearchChange(e.target.value)}
         />
     </div>
+
+
+
+
+
   )
 }

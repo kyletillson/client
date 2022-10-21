@@ -3,20 +3,12 @@ body {
 }
 
 .login {
-  color: rgb(255, 0, 0);
+  color: rgb(185, 28, 28);
 }
 
 .signup {
-  color: rgb(255, 0, 0);
+  color: rgb(185, 28, 28);
 }
-
-/* position:absolute;
-	left:50%;
-	top:60%;
-	transform: translate(-50%,-50%);
-    background-color: rgba(0, 0, 0, 0.89);
-	border-radius:3px;
-	padding:70px 100px; */
 
 .box{
   margin: auto;
@@ -24,8 +16,21 @@ body {
 	background-color: rgb(255, 255, 255);
   width: 300px;
   padding:50px 50px;
-  box-shadow: 0 2px 20px 0 rgb(255, 0, 0); 
+  box-shadow: 0 2px 20px 0 rgb(185, 28, 28); 
 }
+
+.centered{
+  margin: auto;
+
+
+  width: 300px;
+  padding:50px 50px;
+}
+
+.text-centered{
+  text-align: center;
+}
+
 .input-container{
 	position:relative;
 	margin-bottom:25px;
@@ -54,75 +59,9 @@ body {
  border-bottom:1px solid #ffffff;	
 }
 
-/* .button {
-  padding: 0.6em 2em;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing-button 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-@keyframes glowing-button {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.button:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #222;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-} */
 
 .navbar {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   display:flex;
   overflow:hidden;
@@ -145,7 +84,7 @@ body {
 
 
 .navbar {
-  background: rgb(255, 0, 0);
+  background: rgb(185, 28, 28);
   color: black;
   border-radius:5px;
 }
@@ -158,7 +97,7 @@ body {
   border-radius: 4px;
   border-style: none;
   box-sizing: border-box;
-  color: rgb(255, 0, 0);
+  color: rgb(185, 28, 28);
   cursor: pointer;
   display: inline-block;
   font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
@@ -179,7 +118,7 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
-  box-shadow: 0 1px 2px 0 rgb(255, 0, 0); 
+  box-shadow: 0 1px 2px 0 rgb(185, 28, 28); 
 }
 
 .button:hover,
@@ -188,7 +127,7 @@ body {
 }
 
 div {
-  text-align: center;
+  text-align: left;
 }
 
 .search-container{
@@ -212,7 +151,7 @@ text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
             -4px -4px 6px 0 rgba(116, 125, 136, .2), 
   inset -4px -4px 6px 0 rgba(255,255,255,.2),
   inset 4px 4px 6px 0 rgba(0, 0, 0, .2); */
-  box-shadow: 0 2px 20px 0 rgb(255, 0, 0); 
+  box-shadow: 0 2px 20px 0 rgb(71, 71, 71); 
 }
 
 
@@ -232,9 +171,9 @@ text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
 
 }
 
-.search-container .search-btn .fas{
-  color: #ff0000;
-}
+/* .search-container .search-btn .fas{
+  color: #b82626;
+} */
 
 /* @keyframes hoverShake {
 0% {transform: skew(0deg,0deg);}
@@ -276,7 +215,7 @@ animation: hoverShake 0.15s linear 3;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: rgb(255, 0, 0);
+  color: rgb(185, 28, 28);
 }
 
 /* .navbar {
@@ -308,6 +247,12 @@ animation: hoverShake 0.15s linear 3;
   border-radius:5px;
 } */
 
+.h1{
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+
 .h4 {
   font-size: 20px;
   color: rgb(0, 0, 0);
@@ -336,9 +281,10 @@ animation: hoverShake 0.15s linear 3;
   border-radius: 50%;
   width: 75px;
   height: 75px;
+  text-align: center;
 }
 
-.card {
+/* .card {
   background-color: rgb(255, 255, 255);
 }
 
@@ -396,7 +342,7 @@ animation: hoverShake 0.15s linear 3;
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgb(255, 0, 0);
-} 
+}  */
 
 
 
@@ -481,7 +427,7 @@ animation: hoverShake 0.15s linear 3;
   border-radius: 4px;
   border-style: none;
   box-sizing: border-box;
-  color: rgb(255, 0, 0);
+  color: rgb(185, 28, 28);
   cursor: pointer;
   display: inline-block;
   font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
@@ -502,7 +448,7 @@ animation: hoverShake 0.15s linear 3;
   -webkit-user-select: none;
   touch-action: manipulation;
   /* width: 30%; */
-  box-shadow: 0 1px 2px 0 rgb(255, 0, 0); 
+  box-shadow: 0 1px 2px 0 rgb(185, 28, 28); 
 }
 
 .button-delete:hover,
@@ -529,3 +475,36 @@ animation: hoverShake 0.15s linear 3;
   margin-left: 300px;
   margin-right: 300px;
 } */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .transition{
+  transition: all .2s ease-out;
+}
+
+.h-60{
+height: 14rem;
+}
+
+.w-128{
+width: 32rem;
+} */
+
+.restaurant-card{
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.c-card {
+  img {    
+    transition: transform .3s ease-in-out; 
+  }
+  
+  &:hover {
+    img {
+      transform: scale(1.05)
+    }
+  }
+}

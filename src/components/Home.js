@@ -16,10 +16,11 @@ function Home({ user }) {
   // navigate("/signup")
   // }
     if (user) {
-      return <><h1>Hello,   {user.username}! Welcome to the Denver Restaurant Review site!</h1>
+      return <> <div className='text-centered'><h1>Hello,   {user.username}! Welcome to the Denver Restaurant Review site!</h1>
+      </div>
       </>
     } else {
-      return <h1>Please Log In or Sign Up</h1>;
+      return <div className='text-centered'> <h1>Please Log In or Sign Up</h1> </div>;
     }
     // return (
     //   <>
