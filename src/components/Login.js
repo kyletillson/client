@@ -9,10 +9,6 @@ function Login({ setUser }) {
 
   const navigate = useNavigate()
 
-
-
-
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -34,9 +30,6 @@ function Login({ setUser }) {
     });
   }
 
-//   const handleClick = () => {
-//     navigate("/restaurants")
-// }
 
   return (
     <>

@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom"
-
-
 import NavBar from "./NavBar";
-
-
-
 
 function App() {
   const [user, setUser] = useState(null);
-
-  // const { id } = useParams()
 
   useEffect(() => {
     // auto-login
@@ -25,10 +17,7 @@ function App() {
     <div>
       <div>
       <NavBar user={user} setUser={setUser}/>
-      {/* user={user} setUser={setUser} */}
-
       </div>
-
     </div>
   );
 }

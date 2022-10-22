@@ -6,7 +6,7 @@ import FineDining from './FineDining'
 import Vegetarian from './Vegetarian'
 import Moderate from './Moderate'
 import FiveStar from './FiveStar'
-// import RequestRestaurant from './RequestRestaurant'
+
 
 export default function RestaurantList({restaurants, onDeleteRestaurant}) {
 
@@ -20,13 +20,11 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
     <>
     
     <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Fine Dining</h1>
-    <div class="container mx-auto">
-          <div class="flex flex-wrap -mx-4">
-    {/* <div className='cards'> */}
+    <div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
     {restaurants.map((restaurant) => {
             return (
-                <FineDining key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-                  
+                <FineDining key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} /> 
             )
         })}
         </div>
@@ -34,65 +32,53 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
         
 
 <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Vegetarian</h1>
-<div class="container mx-auto">
-          <div class="flex flex-wrap -mx-4">
-
-{/* <div className='cards'> */}
+<div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
     {restaurants.map((restaurant) => {
             return (
                 <Vegetarian key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-                  
             )
         })}
         </div>
         </div>
-       
-        
-
         <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Cheap Eats</h1>
-        <div class="container mx-auto">
-          <div class="flex flex-wrap -mx-4">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
 
     {restaurants.map((restaurant) => {
             return (
-                <Cheap key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-                  
+                <Cheap key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />   
             )
         })}
         </div>
         </div>
-
 <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Moderately Priced</h1>
-<div class="container mx-auto">
-          <div class="flex flex-wrap -mx-4">
+<div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
     {restaurants.map((restaurant) => {
             return (
                 <Moderate key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-                  
             )
         })}
         </div>
         </div>
-
 <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>5 Star</h1>
-<div class="container mx-auto">
-          <div class="flex flex-wrap -mx-4">
+<div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
     {restaurants.map((restaurant) => {
             return (
-                <FiveStar key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-                  
+                <FiveStar key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />  
             )
         })}
         </div>
         </div>
     
     <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>All Restaurants</h1>
-    <div class="container mx-auto">
-          <div class="flex flex-wrap -mx-4">
+    <div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
         {restaurants.map((restaurant) => {
             return (
-                <RestaurantCard key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-                  
+                <RestaurantCard key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} /> 
             )
         })}
         </div>

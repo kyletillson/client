@@ -21,12 +21,6 @@ function NavBar({ user, setUser }) {
     });
   }
 
-
-
-
-
-
-
   return (
     <div>
         <nav className="navbar">
@@ -41,7 +35,6 @@ function NavBar({ user, setUser }) {
             <Link to="/login">Login</Link>
           </>
         )}
-        {/* <Link to="/login">Login</Link> */}
       </div>
       <div>
       {user ? (
@@ -51,18 +44,7 @@ function NavBar({ user, setUser }) {
             <Link to="/signup">Signup</Link>
           </>
         )}
-        {/* <Link to="/signup">Signup</Link> */}
       </div>
-      {/* <div>
-      {user ? (
-           <Link to="/newrestaurant">New Restaurant</Link>
-        ) : (
-          <>
-            
-          </>
-        )}
-        
-      </div> */}
       <div>
       {user ? (
            <Link to="/restaurants">Restaurants</Link>
@@ -71,7 +53,6 @@ function NavBar({ user, setUser }) {
             
           </>
         )}
-        {/* <Link to="/restaurants">Restaurants</Link> */}
       </div>
       <div>
       {user ? (
@@ -81,7 +62,6 @@ function NavBar({ user, setUser }) {
             
           </>
         )}
-        {/* <Link to="/users">Profile</Link> */}
       </div>
       <div>
       {user ? (
@@ -91,7 +71,6 @@ function NavBar({ user, setUser }) {
          
           </>
         )}
-        {/* <Link to="/favorites">Favorites</Link> */}
       </div>
       <div>
         <br></br>
@@ -105,10 +84,7 @@ function NavBar({ user, setUser }) {
       </div>
       <br></br>
       <br></br>
-      {/* <button className="button" onClick={handleClick}>{user.username}</button> */}
-     
-
-        </nav>
+    </nav>
       
 
       <Routes>

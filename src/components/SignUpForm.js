@@ -14,8 +14,6 @@ function SignUpForm({ onLogin }) {
 
   const navigate = useNavigate()
 
-
-
   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);

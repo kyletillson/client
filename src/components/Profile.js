@@ -9,17 +9,11 @@ export default function Profile({ user, setUser }) {
   const [password, setPassword] = useState("")
   const [password_confirmation, setPassword_Confirmation] = useState("")
   const [image_url, setImage_url] = useState("")
-  // const [updatedUser, setUpdatedUser] = useState([])
   const [users, setUsers] = useState([])
   const [errors, setErrors] = useState([]);
 
 
   const { id } = useParams()
-
-//   function onUpdateUser(updatedUsers) {
-//     const updatedUserPage = [...updatedUser, updatedUsers]
-//     setUpdatedUser(updatedUserPage)
-// }
 
   function onDeleteUser() {
     const deleteUser = users.filter((user) => user.id !== id)
@@ -63,17 +57,19 @@ export default function Profile({ user, setUser }) {
         r.json().then((err) => setErrors(err.errors))
       }
     })
-    // .then((r) => r.json())
-    // .then((updatedUser) => (setUser(updatedUser)))
 }
     if (user) {
         return <>
         
         <div className='text-centered'>
         <h1>Hello,   {user.username}! Welcome to your profile!</h1>
+        <br></br>
         <img className="mx-auto rounded-full w-1/12 h-1/12" src={user.image_url} alt={user.username} />
+        <br></br>
         <h4 className="h4">Bio: {user.bio}</h4>
         </div>
+        <br></br>
+        <br></br>
         <div className='box'>
         <div className='text-centered'>
           <h1 className='login'>Edit Profile</h1>

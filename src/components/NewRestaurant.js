@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-// import {useNavigate} from "react-router-dom"
 import { Error } from '../styles'
 
 export default function NewRestaurant() {
-  // const navigate = useNavigate()
   const [restaurants, setRestaurants] = useState([])
   const [display_address, setDisplay_Address] = useState("")
   const [name, setName] = useState("")
@@ -28,7 +26,6 @@ export default function NewRestaurant() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // navigate('/restaurants', {replace: true});
     fetch("/restaurants", {
       method: "POST",
       headers: {
@@ -51,8 +48,6 @@ export default function NewRestaurant() {
         r.json().then((err) => setErrors(err.errors));
       }
     })
-    // .then((r) => r.json())
-    // .then((NewRestaurant) => onAddRestaurant(NewRestaurant))
   }
   return (
     <>
