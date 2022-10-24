@@ -62,7 +62,7 @@ export default function RequestChange() {
             <input onChange={(e) => setRestaurant_Zip(e.target.value)} value={restaurant_zip} type="text" name="Zip Code" placeholder='Restaurant Zip Code' />
             </div>
             <div className='text-centered'>
-            <button className='button' type='submit'>Submit Request</button>
+            <button className='text-white bg-red-900 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-900 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-900 dark:hover:bg-red-900 dark:focus:ring-red-900' type='submit'>Submit Request</button>
             </div>
             {errors.map((err) => (
           <Error key={err}>{err}</Error>

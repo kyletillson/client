@@ -18,17 +18,17 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
     
   return (
     <>
-    
-    <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Fine Dining</h1>
-    <div className="container mx-auto">
+    <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Moderately Priced</h1>
+<div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
     {restaurants.map((restaurant) => {
             return (
-                <FineDining key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} /> 
+                <Moderate key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
             )
         })}
         </div>
         </div>
+    
         
 
 <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Vegetarian</h1>
@@ -37,6 +37,17 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
     {restaurants.map((restaurant) => {
             return (
                 <Vegetarian key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
+            )
+        })}
+        </div>
+        </div>
+       
+        <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Fine Dining</h1>
+    <div className="container mx-auto">
+          <div className="flex flex-wrap -mx-4">
+    {restaurants.map((restaurant) => {
+            return (
+                <FineDining key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} /> 
             )
         })}
         </div>
@@ -52,16 +63,7 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
         })}
         </div>
         </div>
-<h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>Moderately Priced</h1>
-<div className="container mx-auto">
-          <div className="flex flex-wrap -mx-4">
-    {restaurants.map((restaurant) => {
-            return (
-                <Moderate key={restaurant.id} restaurant={restaurant} onDeleteRestaurant={onDeleteRestaurant} />
-            )
-        })}
-        </div>
-        </div>
+
 <h1 className='p-4 border-t border-b text-2xl text-gray-700 text-center'>5 Star</h1>
 <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
@@ -84,10 +86,10 @@ export default function RestaurantList({restaurants, onDeleteRestaurant}) {
         </div>
         </div>
     <div className='text-centered'>
-    <p className='h3 text-centered'>Don't see your favorite restaurant?</p>
+    <p className='p-4 text-2xl text-gray-700 text-center'>Don't see your favorite restaurant?</p>
     </div>
     <div className='button-centered'>
-    <button className='bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded' onClick={handleClick}>Request Restaurant</button>
+    <button className='text-white bg-red-900 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-900 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-900 dark:hover:bg-red-900 dark:focus:ring-red-900' onClick={handleClick}>Request Restaurant</button>
     </div>
     </>
   )

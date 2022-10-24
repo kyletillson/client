@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #f3f3f3;
 }
 
 
@@ -18,6 +18,7 @@ body {
   width: 300px;
   padding:50px 50px;
   box-shadow: 0 2px 20px 0 rgb(68, 68, 68); 
+  margin-bottom: 30px;
 }
 
 .centered{
@@ -89,13 +90,15 @@ body {
   padding: 14px 25px;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 8px;
+  font-weight: 500;
 }
 
 .navbar {
-  background: rgb(185, 28, 28);
+  background: linear-gradient(.647turn,#410a0acc,#3c0909c1 .01%,#4f0c0ccc 51.04%,#711313 99.1%);
+  /* background: rgb(118, 33, 33); */
   color: black;
-  border-radius:5px;
+  /* border-radius:5px; */
 }
 
 
@@ -140,6 +143,9 @@ div {
 }
 
 .search-container{
+  margin-top: 40px;
+  margin-left: 200px;
+  margin-right: 200px;
   background: #fff;
   height: 30px;
   border-radius: 30px;
@@ -154,7 +160,7 @@ div {
 
 
 .search-container:hover > .search-input{
-  width: 1900px;
+  width: 900px;
   
 }
 
@@ -258,11 +264,11 @@ div {
 
 
 .button-delete {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(85, 21, 21);
   border-radius: 4px;
   border-style: none;
   box-sizing: border-box;
-  color: rgb(185, 28, 28);
+  color: rgb(255, 255, 255);
   cursor: pointer;
   display: inline-block;
   font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
@@ -282,7 +288,7 @@ div {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  box-shadow: 0 1px 2px 0 rgb(185, 28, 28); 
+  box-shadow: 0 1px 2px 0 rgb(83, 16, 16); 
 }
 
 .button-delete:hover,
@@ -310,3 +316,45 @@ div {
     }
   }
 } */
+
+.border-head .header-centered {
+  color: rgb(255, 255, 255);
+  font-size: 42px;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.border-head .header-centered-bottom {
+  color: rgb(255, 255, 255);
+  font-size: 42px;
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.border-head {
+  background: linear-gradient(.647turn,#1a0a47cc,#0d1b4599 .01%,#0d1b45cc 51.04%,#0d1b45 99.1%);
+  height: 250px;
+  margin-top: -20px;
+}
+
+.nav-name {
+  color: white;
+  margin-left: 0px;
+  margin-right: 20px;
+  margin-top: 25px;
+
+}
+
+.nav-image {
+  width: 80px;
+  margin-left: -250px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+

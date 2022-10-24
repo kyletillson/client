@@ -23,7 +23,7 @@ function Home({ user }) {
       <h2>Or</h2>
       <br></br>
       <br></br>
-      <button className='bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded' onClick={handleClick}>Click here</button>
+      <button className='text-white bg-red-900 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-900 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-900 dark:hover:bg-red-900 dark:focus:ring-red-900' onClick={handleClick}>Click here</button>
       </div>
       </>
     } else {

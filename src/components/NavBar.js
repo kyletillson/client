@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import RequestRestaurant from "./RequestRestaurant";
 import RequestChange from "./RequestChange";
+// import logo from './logo.png'
 
 import Home from "./Home";
 import Login from "./Login";
@@ -24,9 +25,26 @@ function NavBar({ user, setUser }) {
   return (
     <div>
         <nav className="navbar">
-      <div>
-        <Link to="/">Home</Link>
-      </div>
+        {/* <img className="nav-image" src="https://myplate-prod.azureedge.us/sites/default/files/styles/medium/public/2020-11/food-group-icon__fruits--circle.png?itok=yc3sFNW-"/>
+          <div>
+          <Link className="nav-name" to="/restaurants">DenverFood</Link>
+          
+          </div> */}
+      {/* <div>
+      {user.admin == true ? (
+        <Link to="/">Add Restaurant</Link>
+      </div> */}
+    
+
+      {/* <div>
+      {user.admin === true ? (
+           <> <Link to="/newrestaurant">Login</Link> </>
+        ) : (
+          <></>
+        )}
+      </div> */}
+
+
       <div>
       {user ? (
            <></>
@@ -73,17 +91,15 @@ function NavBar({ user, setUser }) {
         )}
       </div>
       <div>
-        <br></br>
+        
         {user ? (
-          <button className="button" onClick={handleLogoutClick}>Logout</button>
+          <Link onClick={handleLogoutClick}>Logout</Link>
         ) : (
           <>
             
           </>
         )}
       </div>
-      <br></br>
-      <br></br>
     </nav>
       
 

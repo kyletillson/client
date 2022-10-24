@@ -99,7 +99,7 @@ export default function Profile({ user, setUser }) {
             </div>
             
             <div className='text-centered'>
-            <button className='button' type='submit'>Update Profile</button>
+            <button className='text-white bg-red-900 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-900 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-900 dark:hover:bg-red-900 dark:focus:ring-red-900' type='submit'>Update Profile</button>
             </div>
             {errors.map((err) => (
           <Error key={err}>{err}</Error>
@@ -108,7 +108,7 @@ export default function Profile({ user, setUser }) {
           
           <br></br>
           <div className='text-centered'>
-          <button className='button' onClick={handleDeleteClick}>Delete Account</button>
+          <button className='text-white bg-red-900 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-900 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-red-900 dark:hover:bg-red-900 dark:focus:ring-red-900' onClick={handleDeleteClick}>Delete Account</button>
           </div>
           
           </div>
